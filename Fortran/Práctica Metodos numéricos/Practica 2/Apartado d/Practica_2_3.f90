@@ -28,7 +28,7 @@ program Practica_2_3
         suma_2=suma_2+funcion(a+((2*k-1)*h))
     end do
 
-    integral=h/3*( (1.d0/(1.d0+a)) + (1.d0/(1.d0+b)) + 2*suma_1 + 4*suma_2)
+    integral=h/3*( funcion(a) + funcion(b) + 2*suma_1 + 4*suma_2)
     print *,"La integral es: ",integral
     read(*,*) stop
     
