@@ -19,11 +19,13 @@ program Practica_2_5
     read(*,*)x
     print*,"Valor de h: "
     read(*,*)h
+    x=0.d0
+    h=0.0001
    !Primera forma, desarrollo en serie de Taylor
-    f_prima_tay=(funcion(x+h)-funcion(x-h))/2*h!rev
+    f_prima_tay=(funcion(x+h)-funcion(x-h))/(2.d0*h)
 
    !Segunda forma, extrapolacion de Richardson
-    f_prima_rich=((4.d0/3.d0)*funcion_fi(x,h/2))-((1.d0/3.d0)*funcion_fi(x,h))
+    f_prima_rich=((4.d0/3.d0)*(funcion(x+(h/2.d0))-funcion(x-(h/2.d0)))/h)-(1.d0/3.d0)*((funcion(x+h)-funcion(x-h))/(2*h))
     
     !Expreso los valores
     print*,"El valor según el desarrollo en serie de Taylor es: ",f_prima_tay
