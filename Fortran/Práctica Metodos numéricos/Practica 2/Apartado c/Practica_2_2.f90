@@ -20,9 +20,10 @@ program Practica_2_2
 
     do k=1,(n-1)
         suma=suma+funcion(a+k*h)
+        print*,suma
     end do 
     
-    integral=h/2*(1.d0/(1.d0+a)+1.d0/(1.d0+b)+2*suma)
+    integral=h/2*(funcion(a)+funcion(b)+2*suma)
 
     print *,"La integral es: ",integral
     read(*,*) stop
