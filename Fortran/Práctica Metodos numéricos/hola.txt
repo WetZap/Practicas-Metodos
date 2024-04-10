@@ -1,1 +1,1 @@
-jj
+Aquí pondré las prácticas hechas en fortran en la asignatura de MÉTODOS NUMÉRICOS Y SIMULACIÓN 
