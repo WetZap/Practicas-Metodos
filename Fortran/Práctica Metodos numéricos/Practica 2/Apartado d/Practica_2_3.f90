@@ -7,7 +7,7 @@ end function
 program Practica_2_3
     implicit none
     real*8 a,b,h,suma_1,suma_2,integral,stop
-    real*8,external::funcion
+    real*8,external::funcion!Esto sirve para que el programa entienda las funciones
     integer n,k
     !Inicializo los limites
     a=0.d0
@@ -16,9 +16,10 @@ program Practica_2_3
     print*,"Valor n:"
     read(*,*)n
     !Defino h
-        h=(b-a)/n
+    h=(b-a)/n
     suma_1=0.d0
-    !Hacemos las dos que nos dicen
+    !Hacemos las dos sumas que nos dicen de acuerdo a las encontradas en un libro de que se encuentra en
+    !https://images.app.goo.gl/mdy7it3dnyQ87srN8
     do k=2,(n/2)
         suma_1=suma_1+funcion(a+((2*k-2)*h))
     end do  
