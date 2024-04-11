@@ -16,10 +16,10 @@ program Practica_2_2_1
     h=(b-a)/n
     !Abrimos el archivo de texto y lo leemos
     open(11,file="Coeficientes_cotes.txt",status="old")
-    read(11,*)Coeficientes_cotes
+    read(11,*)Coeficientes_cotes!Se puede leer así por la forma del fichero
     !Lo que hacemos aqui es calcular el H que necesitamos recorriendo la matriz de coeficientes
     do i=0,8
-        Coeficientes_cotes_fin(i)=Coeficientes_cotes(i,n)/Coeficientes_cotes(n+1,n)
+        Coeficientes_cotes_fin(i)=Coeficientes_cotes(i,n)/Coeficientes_cotes(n+1,n)! es n+1 y n por ser la ultima columna y ult fila
     end do
     !Aplicamos la formula del calculo integral
     suma=0.d0
