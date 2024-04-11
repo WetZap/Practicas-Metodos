@@ -1,5 +1,5 @@
-Revisar el apartado (a y, usar la función creada en los cálculos de la integral, para los valores de f(x0) y f(xn).
-
 Comprobar que hacen lo que pide.
+
+Revisar la practica 1 y documentarla
 
 Mejorar eficiencia de los códigos para que no se repitan cosas.
