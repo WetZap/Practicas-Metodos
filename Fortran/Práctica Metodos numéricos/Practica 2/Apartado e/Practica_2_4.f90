@@ -7,7 +7,7 @@ end function
 program Practica_2_4
     implicit none
     real*8 x(0:19),h,suma,a,b,stop
-    real*8,external::funcion
+    real*8,external::funcion!Esto sirve para que el programa entienda las funciones
     integer i,j,n
     !Declaramos las variables
     a=0.d0
