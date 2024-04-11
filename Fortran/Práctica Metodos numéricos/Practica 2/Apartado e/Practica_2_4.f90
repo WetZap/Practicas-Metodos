@@ -14,6 +14,7 @@ program Practica_2_4
     b=1.d0
     print*,"Valor de n: "
     read(*,*)n
+    !Comprobamos que el valor introducido se un multiplo de 2.
     if ( mod(n,2)==0 ) then
         !Aplicamos la formula del calculo integral
         h=b-a
