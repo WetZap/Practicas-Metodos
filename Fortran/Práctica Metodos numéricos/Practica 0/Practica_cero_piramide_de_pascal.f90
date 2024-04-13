@@ -15,8 +15,8 @@ program Practica_0
     end do
     do i=0,10
         do j=0,10
-            if ((((j/2)*10)==0) && (i=6))
-                matriz_pascal(i,j)=0
+           ! if ((((j/2)*10)==0) && (i=6))
+                !matriz_pascal(i,j)=0
                
         end do
     end do 
