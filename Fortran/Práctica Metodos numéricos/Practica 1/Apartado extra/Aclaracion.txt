@@ -1,0 +1,2 @@
+Este apartado no está en los ejercicios a realizar, lo que hace es comprobar cual de los tres algoritmos es más preciso, y entre 
+cual de ellos la diferencia es minima.
