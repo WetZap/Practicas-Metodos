@@ -19,9 +19,9 @@ program Practica_1
             end do
             !Finalmente lo escribimos en el archivo o lo imprimimos por pantalla
             polinomio=polinomio+val_y(j)*coef
-           !print *,t,polinomio
-            write(12,*)t,polinomio
         end do
+         !print *,t,polinomio
+        write(12,*)t,polinomio
     end do
 
 end program Practica_1
