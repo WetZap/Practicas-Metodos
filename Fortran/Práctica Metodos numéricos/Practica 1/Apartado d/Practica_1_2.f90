@@ -41,14 +41,14 @@ program Practica_1
         do j = 1, 3
             !Definimos el coeficiente de j como se expone en la formula
             coeficientes(j)=(y(j)-polinomio(j-1))/(Prod_x(j,x))
-            !Aqui el polinomio de j toma el valor que le corresponde al anterior más el ultimo termino añadido, esto sirve para que 
+            !Aqui el polinomio de j tomwa el valor que le corresponde al anterior más el ultimo termino añadido, esto sirve para que 
             !se pueda usar polinomio(j-1) en la anterior sentencia, ya que toma el valor de sustituirse.
             polinomio(j)=polinomio(j-1)+coeficientes(j)*Productorio(j,x,t)
             !El resultado se escribe como la fomula expuesta en la teoria
             resultado=resultado+coeficientes(j)*Productorio(j,x,t)
+            print*,coeficiente(j)
         end do
         !Guardamos el valor en el archivo correspondiente.
         write(12,*) t, resultado
     end do
-    read(*,*) stop
 end program Practica_1
