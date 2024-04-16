@@ -27,5 +27,5 @@ program Practica_1
             print*,-y(3)-(-lag(2,i)),-y(3)-(-new(2,i)),-y(3)-(-min_c(2,i))
         endif
     end do
-
+!hola muy buenas
 end program Practica_1
