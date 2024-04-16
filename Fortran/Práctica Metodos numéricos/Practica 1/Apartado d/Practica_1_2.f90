@@ -22,7 +22,7 @@ end function
 
 program Practica_1
     implicit none!Definimos los tipos de variables y las funciones
-    real*8 x(0:3),y(0:3),polinomio(0:3),coeficientes(0:3),resultado,t
+    real*8 x(0:3),y(0:3),polinomio(0:3),coeficientes(0:3),resultado,t,stop
     real*8,external::Prod_x,Productorio
     integer i,j,k
     !Abrimos los archivos que vamos a usar.
@@ -50,4 +50,5 @@ program Practica_1
         !Guardamos el valor en el archivo correspondiente.
         write(12,*) t, resultado
     end do
+    read(*,*) stop
 end program Practica_1
