@@ -1,7 +1,7 @@
 function funcion(x) result(valor)!Esta funcion es la funcion que nos piden integrar
     implicit none
     real*8 :: x,valor
-    valor=1.d0/(1.d0+x)
+    valor=x/((1+x**2)**3)
 end function
 
 program Practica_2_4
@@ -29,7 +29,9 @@ program Practica_2_4
             end do!Escribimos el valor de x(i) como la formula empleando la anterior.
             x(i)=x(i-1)/2+h*suma
         end do
+        print*,"Para una n=",n,":"
         print*,"El valor de la integral es: ",x(n)
+        print*,"La diferencia es: ",0.187500000-x(n)
     else
         print*,"El valor de n debe ser un multiplo de 2."
     end if
