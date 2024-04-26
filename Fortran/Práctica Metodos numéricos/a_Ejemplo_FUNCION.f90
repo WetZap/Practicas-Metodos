@@ -4,6 +4,8 @@ program Prueba
     real*8,external :: facto
     valor=6.d0
     print *,facto(7)
+    print*,'hola  \n peroo'
+    print*,'pero'
 end program Prueba
 
 function facto(n) result(prod)
