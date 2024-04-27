@@ -24,6 +24,7 @@ program Descomposicion
             end if
         end do
     end do
+    
     do i = 1, n
         do j=1,n
             if ( j<i ) then
