@@ -177,7 +177,6 @@ function comprobacion_richa(matriz,fil,col) result(respuesta)
         do j = 1, col
             if ( j/=i ) then
                 suma = suma + abs(matriz(j,i))
-                print*,suma
             end if
         end do
         if ( suma>matriz(i,i) ) then
