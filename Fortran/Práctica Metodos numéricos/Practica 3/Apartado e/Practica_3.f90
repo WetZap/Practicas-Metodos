@@ -10,6 +10,9 @@ program Apartado_e
     read(11,*)fil,col
     read(12,*)fil_1
 
+    if ( fil==fil_1 ) then
+        
+
     do i = 1, fil
         read(11,*)(matriz(j,i),j=1,col)
     end do
@@ -25,7 +28,7 @@ program Apartado_e
         pivote=matriz(k,k)
         do i = 1, fil
             do j=1,col
-                if (i/=k.and.j>=k) then
+                if (i/=k.and.j>=k) then!Igual pero hago ceros fuera de diagonal.
                     matriz_supl(j,i)=matriz(j,i)-((matriz(k,i)/pivote)*matriz(j,k))
                     matriz_coef_sup(i)=matriz_coef(i)-((matriz(k,i)/pivote)*matriz_coef(k))     
                 end if
@@ -37,7 +40,7 @@ program Apartado_e
     end do
 
     do i = 1, col
-        write(13,*)(matriz(j,i),j=1,fil)
+        write(13,*)(matriz(j,i),j=1,fil),matriz_coef_sup(i)
     enddo
 
     do i=1,n
@@ -46,6 +49,10 @@ program Apartado_e
     do i = 1, n
         write(14,*) x(i)
     end do
+
+    else
+        print*,"Para que se pueda resolver la matriz de coeficientes tiene que tener la misma dimension que la matriz."
+    end if
 
 
 end program Apartado_e

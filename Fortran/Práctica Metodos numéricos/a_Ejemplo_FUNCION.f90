@@ -6,6 +6,7 @@ program Prueba
     print *,facto(7)
     print*,'hola  \n peroo'
     print*,'pero'
+    print*,10.d0**(-3)
 end program Prueba
 
 function facto(n) result(prod)
@@ -20,5 +21,4 @@ function facto(n) result(prod)
             prod=prod*i        
         end do
     end if
-
 end function

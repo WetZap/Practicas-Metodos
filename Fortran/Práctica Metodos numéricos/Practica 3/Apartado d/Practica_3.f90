@@ -25,7 +25,7 @@ program Apartado_d
         pivote=matriz(k,k)
         do i = 1, fil
             do j=1,col
-                if (i>k.and.j>=k) then
+                if (i>k.and.j>=k) then!La uncia diferencia respecto a Gauss es que hago 1 el elemento pivote 
                     t(j,k)=matriz(j,k)/pivote  
                     v(k)=matriz_coef(k)/pivote    
                     matriz_supl(j,i)=matriz(j,i)-(matriz(k,i)*t(j,k))
@@ -39,7 +39,7 @@ program Apartado_d
     end do
 
     do i = 1, col
-        write(13,*)(matriz(j,i),j=1,fil)
+        write(13,*)(matriz(j,i),j=1,fil),matriz_coef(i)
     enddo
 
 
