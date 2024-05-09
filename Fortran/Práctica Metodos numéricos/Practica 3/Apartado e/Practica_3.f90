@@ -38,9 +38,9 @@ program Apartado_e
         matriz_coef=matriz_coef_sup
 
     end do
-
-    do i = 1, col
-        write(13,*)(matriz(j,i),j=1,fil),matriz_coef_sup(i)
+    print*,matriz(1:4,1:4)
+    do i = 1, fil
+        write(13,*)(matriz(j,i),j=1,col),matriz_coef_sup(i)
     enddo
 
     do i=1,n

@@ -1,6 +1,6 @@
 program Metodos_iterativos
     implicit none
-    real*8 matriz(100,100),matriz_coef(100),x(100),x_auxi(100),matriz_pa_Rich(100,100),matriz_coef_pa_rich(100),pivote,p
+    real*8 matriz(100,100),matriz_coef(100),x(100),x_auxi(100),matriz_pa_Rich(100,100),matriz_coef_pa_rich(100),pivote,p,error,ant
     real*8,external::sumatorio,sumatorio_jac,sumatorio_sneide_1,sumatorio_sneide_2
     character,external::Menu,comprobacion_demas,comprobacion_richa
     character resp
@@ -13,6 +13,8 @@ program Metodos_iterativos
     read(13,*)fil_1
     !Comprobamos que la dimension de ambas matrices es igual.
     if ( fil==fil_1 ) then  
+        !Defino el error que tendra el resultado
+        error=10**(-5)
         n=fil!Defino como n el numero maximo
         !Leo la matriz que queremos calcular sus soluciones
         do i = 1, fil
@@ -50,6 +52,8 @@ program Metodos_iterativos
                         do i = 1, n
                             x(i)=x(i)-sumatorio(n,matriz_pa_Rich,x,i)+matriz_coef_pa_rich(i)
                         end do
+                        if ( abs(x(n)-ant)<error ) exit
+                        ant=x(n)
                     end do
                     !Abro el arhcivo en el que se guardara y lo escribo dentro.
                     open(12,file='Resolucion_Rich.txt',status='unknown')
@@ -68,6 +72,8 @@ program Metodos_iterativos
                         do i = 1, n
                             x(i)=x(i)-sumatorio(n,matriz_pa_Rich,x,i)+matriz_coef_pa_rich(i)
                         end do
+                        if ( abs(x(n)-ant)<error ) exit
+                        ant=x(n)
                     end do
                     !Abro el archivo y escribo las respuestas.
                     open(12,file='Resolucion_Rich.txt',status='unknown')
@@ -89,7 +95,8 @@ program Metodos_iterativos
                         do i = 1, n
                             x(i)=(1.d0/matriz(i,i))*(-sumatorio_jac(i,n,x,matriz)+matriz_coef(i))
                         end do
-                        
+                        if ( abs(x(n)-ant)<error ) exit
+                        ant=x(n)
                     end do
                     !Abro y escribo las soluciones.
                     open(14,file='Resolucion_Jaco.txt',status='unknown')
@@ -112,9 +119,12 @@ program Metodos_iterativos
                             x(i)=(1.d0/matriz(i,i))*(matriz_coef(i)-sumatorio_sneide_1(i,n,matriz,x)-sumatorio_sneide_2&
                             &(i,n,matriz,x))
                         end do
+                        if ( abs(x(n)-ant)<error ) exit
+                        ant=x(n)
                     end do
+                    
                     !Abro y escribo soluciones.
-                    open(15,file='Resolucion_Snei.txt',status='unknown')
+                     open(15,file='Resolucion_Snei.txt',status='unknown')
                     do i = 1, n
                         write(15,*) x(i)
                     end do
