@@ -1,9 +1,9 @@
-function funcion(x) result(valor)
+function funcion(x) result(valor)!Esta función se encarga de guardar el valor de la funcion a encontrar cero.
     implicit none
     real*8 x,valor
     valor=x+exp(x)
 end function
-function funcion_prima(x) result(valor)
+function funcion_prima(x) result(valor)!Esta función se encarga de guardar el valor de la funcion prima a encontrar cero.
     implicit none
     real*8 x,valor
     valor=1+exp(x)
@@ -13,18 +13,20 @@ program Practica_4_Newton
     implicit none
     real*8,external::funcion,funcion_prima
     real*8 a,b,error,difere,x,x_1
+    !Definimos los valores de los limites del intervalo.
     a=-1.d0
     b=0.d0
+    !Definimos el error.
     error=10.d0**(-3)
     difere=1.d0
-    x=99.d0
+    !Tomamos un valor inicial para la x
+    x=100.d0
     x_1=x
-    do while(difere>=error)
-        x=x-(funcion(x)/funcion_prima(x))
-        difere=abs(abs(funcion(x))-abs(funcion(x_1)))
-        x_1=x
+    do while(difere>=error)!Comenzamos el bucle.
+        x=x-(funcion(x)/funcion_prima(x))!Realizamos el paso correspondiente.
+        difere=abs(abs(funcion(x))-abs(funcion(x_1)))!Calculamos la diferencia con el valor anterior.
+        x_1=x!Guardamos el valor anterior en una variable.
     end do
-
+    !Imprimimos el resultado por pantalla.
     print*,"El valor ",x,"es un cero de la función."
-    100 print*,"El valor ",x,"es un cero de la función."
 end program Practica_4_Newton
