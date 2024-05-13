@@ -50,8 +50,10 @@ function Gauss(matriz,fil,col,L) result(matriz_supl)
     real*8 matriz(100,100),matriz_supl(100,100),pivote,L(100,100)
     integer i,j,k,n,fil,col  
     n=fil
+    matriz(1,1)=matriz(1,1)/matriz(1,1)
     matriz_supl=matriz
-    do k = 1, n-1!Comenzamos el bucle que tendra n-1 pasos.
+    
+    do k = 1, n!Comenzamos el bucle que tendra n-1 pasos.
         do i =2, fil
             pivote=matriz(k,k)!Elegimos el elemento de la diagonal como elemento pivote.
             do j = 1, col
