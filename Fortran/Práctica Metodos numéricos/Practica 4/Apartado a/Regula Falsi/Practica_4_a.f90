@@ -7,7 +7,7 @@ end function
 program Practica_4_Regula
     implicit none
     real*8,external::funcion
-    real*8 a,b,valor,error,c,difere,f_a,f_b,c_1
+    real*8 a,b,valor,error,c,difere,f_a,f_b,c_1,i
     !Definimos los valores de los limites del intervalo.
     a=-1.d0
     b=0.d0
@@ -17,19 +17,22 @@ program Practica_4_Regula
     !Tomamos el valor de c como la formula descrita en clase.
     c=(a*funcion(b)-b*funcion(a))/(funcion(b)-funcion(a))
     c_1=c
+    i=0.d0
     do while(difere>=error)!Comenzamos nuestro bucle.
         if (funcion(c)*funcion(a)>0) then!Hacemos lo mismo que hicimos en Biseccion.
             a=c!Cambiamos el valor de a por el de c ya que nos interesa estudiar el intervalo [c,b]
             c=(a*funcion(b)-b*funcion(a))/(funcion(b)-funcion(a))!Volvemos a definir el valor de c y comprobamos la diferencia 
-            difere=abs(abs(funcion(c))-abs(funcion(c_1)))!de este con el anterior.
+            difere=abs(abs((c))-abs((c_1)))!de este con el anterior.
         else if(funcion(c)*funcion(a)<0)then
             b=c!lo mismo pero con el intervalo [a,c]
             c=(a*funcion(b)-b*funcion(a))/(funcion(b)-funcion(a))
-            difere=abs(abs(funcion(c))-abs(funcion(c_1)))
+            difere=abs(abs((c))-abs((c_1)))
         end if
         if(funcion(c)*funcion(a)==0) exit !Si encontramos el cero nos vamos.
         c_1=c
+        i=i+1!Contamos el numero de iteraciones.
     end do
     !Imprimimos el resultado.
     print*,"El valor ",c,"es un cero de la función."
+    print*,"El numero de iteraciones es: ",i
 end program Practica_4_Regula

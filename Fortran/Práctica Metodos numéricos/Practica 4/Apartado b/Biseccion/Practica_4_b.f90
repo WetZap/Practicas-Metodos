@@ -23,12 +23,12 @@ program Practica_4_Biseccion
             if (funcion(c)*funcion(a)>0) then!Esta sería la primera condicion del método.
                 a=c!Cambiamos el valor de a por el de c ya que nos interesa estudiar el intervalo [c,b]
                 c=(b+a)/(2.d0)!Volvemos a definir el valor de c y comprobamos la diferencia de este con el anterior.
-                difere=abs((funcion(c))-(funcion(c_anterior)))
+                difere=abs(abs(c)-abs(c_anterior))
                 c_anterior=c
             else if(funcion(c)*funcion(a)<0)then
                 b=c!Lo mismo que arriba
                 c=(b+a)/(2.d0)
-                difere=abs((funcion(c))-(funcion(c_anterior)))!
+                difere=abs(abs(c)-abs(c_anterior))
                 c_anterior=c
             end if
             if(funcion(c)*funcion(a)==0) exit !Cuando sea 0 se marcha.

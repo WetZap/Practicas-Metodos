@@ -24,7 +24,7 @@ program Practica_4_Newton
     x_1=x
     do while(difere>=error)!Comenzamos el bucle.
         x=x-(funcion(x)/funcion_prima(x))!Realizamos el paso correspondiente.
-        difere=abs(abs(funcion(x))-abs(funcion(x_1)))!Calculamos la diferencia con el valor anterior.
+        difere=abs(abs(x)-abs(x_1))!Calculamos la diferencia con el valor anterior.
         x_1=x!Guardamos el valor anterior en una variable.
     end do
     !Imprimimos el resultado por pantalla.

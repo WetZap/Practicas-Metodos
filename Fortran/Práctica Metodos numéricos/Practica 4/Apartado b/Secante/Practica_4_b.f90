@@ -20,7 +20,7 @@ program Practica_4_Secante
     x_1=x
     do while(difere>=error)!Comenzamos nuestro bucle
         x=x-((funcion(x)*(x-x__1))/(funcion(x)-funcion(x__1)))!Tomamos el valor de x como el anterior menos una expresion que tiene
-        difere=abs(abs(funcion(x))-abs(funcion(x_1)))!que ver con la derivada.
+        difere=abs(abs(x)-abs(funcion(x_1)))!que ver con la derivada.
         x_1=x
     end do
     !Imprimimos el valor por pantalla.

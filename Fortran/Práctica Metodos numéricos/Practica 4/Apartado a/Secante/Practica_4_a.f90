@@ -16,12 +16,12 @@ program Practica_4_Secante
     error=10.d0**(-3)
     difere=1.d0
     !Tomamos dos valor inicial para la x
-    x=11.d0
-    x__1=5.d0
+    x=0.5d0
+    x__1=1.d0
     x_1=x
     do while(difere>=error)!Comenzamos nuestro bucle
         x=x-((funcion(x)*(x-x__1))/(funcion(x)-funcion(x__1)))!Tomamos el valor de x como el anterior menos una expresion que tiene
-        difere=abs(abs(funcion(x))-abs(funcion(x_1)))!que ver con la derivada.
+        difere=abs(abs(x)-abs(x_1))!que ver con la derivada.
         x_1=x
     end do
     !Imprimimos el valor por pantalla.

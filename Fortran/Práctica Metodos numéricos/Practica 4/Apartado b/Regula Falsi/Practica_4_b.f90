@@ -21,11 +21,11 @@ program Practica_4_Regula
         if (funcion(c)*funcion(a)>0) then!Hacemos lo mismo que hicimos en Biseccion.
             a=c!Cambiamos el valor de a por el de c ya que nos interesa estudiar el intervalo [c,b]
             c=(a*funcion(b)-b*funcion(a))/(funcion(b)-funcion(a))!Volvemos a definir el valor de c y comprobamos la diferencia 
-            difere=abs(abs(funcion(c))-abs(funcion(c_1)))!de este con el anterior.
+            difere=abs(abs(c)-abs(c_1))!de este con el anterior.
         else if(funcion(c)*funcion(a)<0)then
             b=c!lo mismo pero con el intervalo [a,c]
             c=(a*funcion(b)-b*funcion(a))/(funcion(b)-funcion(a))
-            difere=abs(abs(funcion(c))-abs(funcion(c_1)))
+            difere=abs(abs(c)-abs(c_1))
         end if
         if(funcion(c)*funcion(a)==0) exit !Si encontramos el cero nos vamos.
         c_1=c
