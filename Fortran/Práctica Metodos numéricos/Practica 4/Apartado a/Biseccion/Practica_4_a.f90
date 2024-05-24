@@ -30,7 +30,7 @@ program Practica_4_Biseccion
                 b=c!Lo mismo que arriba
                 c=(b+a)/(2.d0)
                 difere=abs(c-c_anterior)!
-                c_anterior=c
+                c_anterior=c  
             end if
             if(funcion(c)*funcion(a)==0) exit !Cuando sea 0 se marcha.
             i=i+1
