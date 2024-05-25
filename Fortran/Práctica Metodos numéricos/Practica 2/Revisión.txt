@@ -1,5 +1,0 @@
-Comprobar que hacen lo que pide.
-
-Revisar la practica 1 y documentarla
-
-Mejorar eficiencia de los códigos para que no se repitan cosas.
