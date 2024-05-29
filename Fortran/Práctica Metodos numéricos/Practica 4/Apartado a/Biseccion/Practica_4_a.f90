@@ -7,13 +7,14 @@ end function
 program Practica_4_Biseccion
     implicit none
     real*8,external::funcion
-    real*8 a,b,valor,error,c,difere,f_a,f_b,c_anterior,i!Definimos las variables
+    real*8 a,b,valor,error,c,difere,f_a,f_b,c_anterior!Definimos las variables
+    integer iteracion
     !Definimos los valores de los limites del intervalo.
     a=-1.d0
     b=0.d0
     if ( funcion(a)*funcion(b)<0 ) then!Comprobamos que la funcion tiene un cero.
         !Definimos el error que consideraremos.
-        i=0.d0
+        iteracion=0.
         error=10.d0**(-3)
         difere=1.d0
         !Definimos el valor de c como la SUMA de los intervalos entre 2.
@@ -33,11 +34,11 @@ program Practica_4_Biseccion
                 c_anterior=c  
             end if
             if(funcion(c)*funcion(a)==0) exit !Cuando sea 0 se marcha.
-            i=i+1
+            iteracion=iteracion+1
         end do
         !Imprimimos el valor del sitio del 0.
         print*,"El valor ",c,"es un cero de la función."
-        print*,'Se han realizado ',i,' iteraciones para encontrar el cero.'
+        print*,'Se han realizado ',iteracion,' iteraciones para encontrar el cero.'
     else
         print*,'La funcion no pasa de postivo a negativo en el intervalo escogido.'
     end if
