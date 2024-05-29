@@ -1,11 +1,11 @@
 program Descomposicion
     implicit none
     interface
-        function Gauss(matriz,fil,col,L) result(matriz_supl)
+        function Gauss(matriz_fu,fil_fu,col_fu,L_fu) result(matriz_supl)
             implicit none
-            real*8::matriz(100,100),L(100,100)
+            real*8::matriz_fu(100,100),L_fu(100,100)
             real*8 matriz_supl(100,100)
-            integer::fil,col
+            integer::fil_fu,col_fu
         end function
     end interface
     real*8 matriz(100,100),L(100,100),U(100,100)
@@ -45,10 +45,10 @@ program Descomposicion
     enddo
 end program Descomposicion
 
-function Gauss(matriz,fil,col,L) result(matriz_supl)
+function Gauss(matriz_fu,fil_fu,col_fu,L_fu) result(matriz_supl)
     implicit none
-    real*8 matriz(100,100),matriz_supl(100,100),pivote,L(100,100)
-    integer i,j,k,n,fil,col  
+    real*8 matriz_fu(100,100),matriz_supl(100,100),pivote,L_fu(100,100)
+    integer i,j,k,n,fil_fu,col_fu
     n=fil
     matriz(1,1)=matriz(1,1)/matriz(1,1)
     matriz_supl=matriz
