@@ -8,7 +8,7 @@ end function
 program Practica_4_Secante
     implicit none
     real*8,external::funcion
-    real*8 a,b,error,difere,x,x_1,x__1
+    real*8 a,b,error,difere,x,x_0,x_1
     integer iteracion
     !Definimos los valores de los limites del intervalo.
     a=-1.d0
@@ -17,11 +17,11 @@ program Practica_4_Secante
     error=10.d0**(-3)
     difere=1.d0
     !Tomamos dos valores inicial para la x
-    x=0.5d0
-    x__1=1.d0
-    x_1=x
+    x_0=0.7d0
+    x_1=3.d0
+    iteracion=0
     do while(difere>=error)!Comenzamos nuestro bucle
-        x=x-((funcion(x)*(x-x__1))/(funcion(x)-funcion(x__1)))!Tomamos el valor de x como el anterior menos una expresion que tiene
+        x=x_0-((funcion(x_0)*(x_0-x_1))/(funcion(x_0)-funcion(x_1)))!Tomamos el valor de x como el anterior menos una expresion que tiene
         difere=abs(abs(x)-abs(x_1))!que ver con la derivada.
         x_1=x
         iteracion=iteracion+1!Contamos las iteraciones que se hacen
