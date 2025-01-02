@@ -19,7 +19,8 @@ program Practica_2_2_1
     read(11,*)Coeficientes_cotes!Se puede leer así por la forma del fichero
     !Lo que hacemos aqui es calcular el H que necesitamos recorriendo la matriz de coeficientes
     do i=0,8
-        Coeficientes_cotes_fin(i)=Coeficientes_cotes(i,n)/Coeficientes_cotes(n+1,n)! es n+1 y n por ser la ultima columna y ult fila
+        ! es n+1 y n por ser la ultima columna y ult fila
+        Coeficientes_cotes_fin(i)=Coeficientes_cotes(i,n)/Coeficientes_cotes(n+1,n)
     end do
     !Aplicamos la formula del calculo integral
     suma=0.d0

@@ -8,11 +8,14 @@ program Practica_1
     n=4
     !Inciamos el bucle que se encargara de tomar el valor de la x
     do k=0,100
-        polinomio=0.d0!Iniciamos el polinomio correspondiente a 0 para que no interfiera con los otros
+        !Iniciamos el polinomio correspondiente a 0 para que no interfiera con los otros
+        polinomio=0.d0
         t=0.4 + k*(0.4/100)
-        do j=0,(n-1)!El segundo bucle solo llegara hasta el grado del polinomio menos uno
+        do j=0,(n-1)
+            !El segundo bucle solo llegara hasta el grado del polinomio menos uno
             coef=1.d0
-            do i = 0,(n-1)!Este bucle se encarga de tomar el valor del productorio
+            !Este bucle se encarga de tomar el valor del productorio
+            do i = 0,(n-1)
                 if ( j.NE.i ) then
                     coef=coef*((t-val_x(i))/(val_x(j)-val_x(i)))
                 end if

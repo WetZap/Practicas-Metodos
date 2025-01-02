@@ -1,5 +1,6 @@
 !Funcion que recibe como argumento un entero y un array que tiene dimension 4
-function Prod_x(j,x) result(prod)!Esta funcion lo que hace es el productorio que sale en la definicion de $c_k$
+!Esta funcion lo que hace es el productorio que sale en la definicion de $c_k$
+function Prod_x(j,x) result(prod)
     implicit none
     integer j,k
     real*8 x(0:3),prod
@@ -8,10 +9,14 @@ function Prod_x(j,x) result(prod)!Esta funcion lo que hace es el productorio que
         prod=prod*(x(j)-x(k))
     end do
 end function
-!Funcion que recibe como argumento un entero, un array que tiene dimension 4 y un valor real (en este caso toma valores entre
+!Funcion que recibe como argumento un entero, un array que tiene dimension 
+!4 y un valor real (en este caso toma valores entre
 !0,4 y 0,8)
-function Productorio(k,x,t) result(prod)!Esta funcion es la encargada de realizar el productorio de la formula $p_l(x)$ donde x toma
-    implicit none                       !el valor de t
+
+!Esta funcion es la encargada de realizar el productorio de la formula $p_l(x)$ donde x toma
+!el valor de t
+function Productorio(k,x,t) result(prod)
+    implicit none                       
     integer k,j
     real*8 x(0:3),prod,t
     prod=1.d0
@@ -41,8 +46,10 @@ program Practica_1
         do j = 1, 3
             !Definimos el coeficiente de j como se expone en la formula
             coeficientes(j)=(y(j)-polinomio(j-1))/(Prod_x(j,x))
-            !Aqui el polinomio de j tomwa el valor que le corresponde al anterior más el ultimo termino añadido, esto sirve para que 
-            !se pueda usar polinomio(j-1) en la anterior sentencia, ya que toma el valor de sustituirse.
+            !Aqui el polinomio de j tomwa el valor que le corresponde
+            ! al anterior más el ultimo termino añadido, esto sirve para que 
+            !se pueda usar polinomio(j-1) en la anterior sentencia, 
+            !ya que toma el valor de sustituirse.
             polinomio(j)=polinomio(j-1)+coeficientes(j)*Productorio(j,x,t)
             !El resultado se escribe como la fomula expuesta en la teoria
             resultado=resultado+coeficientes(j)*Productorio(j,x,t)

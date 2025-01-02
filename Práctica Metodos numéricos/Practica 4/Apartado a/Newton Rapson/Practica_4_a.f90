@@ -1,10 +1,11 @@
-function funcion(x) result(valor)!Esta función se encarga de guardar el valor de la funcion a encontrar cero.
+!Esta función se encarga de guardar el valor de la funcion a encontrar cero.
+function funcion(x) result(valor)
     implicit none
     real*8 x,valor
     valor=x+exp(x)
 end function
-
-function funcion_prima(x) result(valor)!Esta función se encarga de guardar el valor de la funcion prima a encontrar cero.
+!Esta función se encarga de guardar el valor de la funcion prima a encontrar cero.
+function funcion_prima(x) result(valor)
     implicit none
     real*8 x,valor
     valor=1+exp(x)

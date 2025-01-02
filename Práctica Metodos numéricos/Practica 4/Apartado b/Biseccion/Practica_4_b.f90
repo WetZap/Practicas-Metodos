@@ -21,8 +21,10 @@ program Practica_4_Biseccion
         !Comenzamos el bucle que se encargara de que llegar al error deseado.
         do while(difere>=error)
             if (funcion(c)*funcion(a)>0) then!Esta sería la primera condicion del método.
-                a=c!Cambiamos el valor de a por el de c ya que nos interesa estudiar el intervalo [c,b]
-                c=(b+a)/(2.d0)!Volvemos a definir el valor de c y comprobamos la diferencia de este con el anterior.
+                !Cambiamos el valor de a por el de c ya que nos interesa estudiar el intervalo [c,b]
+                a=c
+                !Volvemos a definir el valor de c y comprobamos la diferencia de este con el anterior.
+                c=(b+a)/(2.d0)
                 difere=abs(abs(c)-abs(c_anterior))
                 c_anterior=c
             else if(funcion(c)*funcion(a)<0)then

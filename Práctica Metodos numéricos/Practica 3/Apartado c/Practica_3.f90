@@ -3,15 +3,20 @@ program Practica_3_c
     real*8 matriz(100,100),matriz_coef(100),pivote,x(100),suma,matriz_supl(100,100),matriz_coef_sup(100)
     integer i,j,k,fil,col,fil_1,n
     !Abrimos los archivos que vamos a usar:
-    open(11,file='matriz.txt',status='old')!Este tendra los valores de la matriz.
-    open(12,file='matriz_coef.txt',status='old')!Este los coeficientes de la matriz de coeficientes
-    open(13,file='valo_resu.txt',status='unknown')!Este almacenara la matriz resultado que sale despues de hacer las operaciones.
-    open(14,file='Resultados.txt',status='unknown')!Este almacenara los valores de x tras resolver el sistema.
+    !Este tendra los valores de la matriz.
+    open(11,file='matriz.txt',status='old')
+    !Este los coeficientes de la matriz de coeficientes
+    open(12,file='matriz_coef.txt',status='old')
+    !Este almacenara la matriz resultado que sale despues de hacer las operaciones.
+    open(13,file='valo_resu.txt',status='unknown')
+    !Este almacenara los valores de x tras resolver el sistema
+    open(14,file='Resultados.txt',status='unknown').
 
     read(11,*)fil,col!Leemos los valores de las filas y columnas.
     read(12,*)fil_1!leemos el valor de la fila de la matriz de coeficientes.
     
-    if ( fil==fil_1 ) then!Compruebo si tienen el mismo numero de filas
+    !Compruebo si tienen el mismo numero de filas
+    if ( fil==fil_1 ) then
 
         do i = 1, fil!Leo la matriz que contiene a los valores
             read(11,*)(matriz(j,i),j=1,col)
@@ -21,9 +26,10 @@ program Practica_3_c
         do i = 1, fil_1!Leo la matriz que contiene a los coeficientes.
             read(12,*) matriz_coef(i)
         end do
-        
-        n=fil!Defino n como el numero de filas, se podría haber hecho lo mismo pero con columnas.
-        matriz_supl=matriz!Las matrices suplementarias toman los valores de las matrices originales.
+        !Defino n como el numero de filas, se podría haber hecho lo mismo pero con columnas.
+        n=fil
+        !Las matrices suplementarias toman los valores de las matrices originales.
+        matriz_supl=matriz
         matriz_coef_sup=matriz_coef
         
         do k = 1, n-1!Comenzamos el bucle que tendra n-1 pasos.
@@ -35,8 +41,10 @@ program Practica_3_c
                         matriz_coef_sup(i)=matriz_coef(i)-(((matriz(k,i)*1.d0)/pivote)*matriz_coef(k))
                     end if
                 end do
-                matriz=matriz_supl!Copiamos en la matriz antigua los valores de la nueva para que en la siguiente vuelta no se
-            end do!entorpezcan los valores.
+                !Copiamos en la matriz antigua los valores de la nueva para que en la siguiente
+                ! vuelta no se entorpezcan los valores.
+                matriz=matriz_supl
+            end do
             matriz_coef=matriz_coef_sup!Lo mismo.
     
         end do
@@ -45,8 +53,10 @@ program Practica_3_c
             write(13,*)(matriz(j,i),j=1,fil),matriz_coef(i)
         enddo
     
-        !De esta forma resolvemos el sistema, como el ultimo valor es igual x(n) lo despejamos y hacemos un bucle inverso que nos 
-        x(n)=(matriz_coef(n)/matriz(n,n))!va resolviendo el sistema.
+        !De esta forma resolvemos el sistema, como 
+        !el ultimo valor es igual x(n) lo despejamos y 
+        !hacemos un bucle inverso que nos va resolviendo el sistema. 
+        x(n)=(matriz_coef(n)/matriz(n,n))
     
         do k = n-1, 1,-1
             suma=0.d0

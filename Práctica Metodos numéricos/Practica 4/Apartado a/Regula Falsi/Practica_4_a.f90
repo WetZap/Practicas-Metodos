@@ -20,10 +20,14 @@ program Practica_4_Regula
     c_1=c
     iteracion=0
     do while(difere>=error)!Comenzamos nuestro bucle.
-        if (funcion(c)*funcion(a)>0) then!Hacemos lo mismo que hicimos en Biseccion.
-            a=c!Cambiamos el valor de a por el de c ya que nos interesa estudiar el intervalo [c,b]
-            c=(a*funcion(b)-b*funcion(a))/(funcion(b)-funcion(a))!Volvemos a definir el valor de c y comprobamos la diferencia 
-            difere=abs(abs((c))-abs((c_1)))!de este con el anterior.
+        !Hacemos lo mismo que hicimos en Biseccion.
+        if (funcion(c)*funcion(a)>0) then
+            !Cambiamos el valor de a por el de c ya que nos interesa estudiar el intervalo [c,b]
+            a=c
+            !Volvemos a definir el valor de c y comprobamos la diferencia 
+            !de este con el anterior.
+            c=(a*funcion(b)-b*funcion(a))/(funcion(b)-funcion(a))
+            difere=abs(abs((c))-abs((c_1)))
         else if(funcion(c)*funcion(a)<0)then
             b=c!lo mismo pero con el intervalo [a,c]
             c=(a*funcion(b)-b*funcion(a))/(funcion(b)-funcion(a))

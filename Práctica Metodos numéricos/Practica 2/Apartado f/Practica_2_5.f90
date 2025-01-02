@@ -1,11 +1,16 @@
-function funcion(x) result(valor)!Esta funcion es la funcion que nos piden integrar
+
+!Esta funcion es la funcion que nos piden integrar
+function funcion(x) result(valor)
     implicit none
     real*8 :: x,valor
     valor=1.d0/(1.d0+x)
 end function
 
-function funcion_fi(x,h) result(valor)!Lo que hace esta funcione es calcular los valores de la funcion introducida apoyandose en la 
-    implicit none!funcion anterior
+!Lo que hace esta funcione es calcular los valores de la funcion  
+!introducida apoyandose en la funcion anterior
+
+function funcion_fi(x,h) result(valor)
+    implicit none
     real*8 :: x,valor,h,funcion
     valor=(funcion(x+h)-funcion(x-h))/(2*h)
 end function

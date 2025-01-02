@@ -1,10 +1,12 @@
-function funcion(x) result(valor)!Funcion que toma el valor de la función deseada.
+!Funcion que toma el valor de la función deseada.
+function funcion(x) result(valor)
     implicit none
     real*8 x,valor
     valor= x**3- 5*x**2 + 7*x - 3
 end function
-function funcion_prima(x) result(valor)!Esta función se encarga de guardar el valor de la funcion prima a encontrar cero.
-    implicit none
+!Esta función se encarga de guardar el valor de la funcion prima a encontrar cero.
+implicit none
+function funcion_prima(x) result(valor)
     real*8 x,valor
     valor=3*x**2-10*x+7
 end function

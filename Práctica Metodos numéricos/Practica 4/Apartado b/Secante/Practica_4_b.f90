@@ -19,8 +19,10 @@ program Practica_4_Secante
     x__1=5.d0
     x_1=x
     do while(difere>=error)!Comenzamos nuestro bucle
-        x=x-((funcion(x)*(x-x__1))/(funcion(x)-funcion(x__1)))!Tomamos el valor de x como el anterior menos una expresion que tiene
-        difere=abs(abs(x)-abs(funcion(x_1)))!que ver con la derivada.
+        !Tomamos el valor de x como el anterior menos una expresion que tiene
+        !que ver con la derivada.
+        x=x-((funcion(x)*(x-x__1))/(funcion(x)-funcion(x__1)))
+        difere=abs(abs(x)-abs(funcion(x_1)))
         x_1=x
     end do
     !Imprimimos el valor por pantalla.

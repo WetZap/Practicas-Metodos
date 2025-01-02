@@ -21,7 +21,8 @@ program Practica_4_Secante
     x_1=3.d0
     iteracion=0
     do while(difere>=error)!Comenzamos nuestro bucle
-        x=x_0-((funcion(x_0)*(x_0-x_1))/(funcion(x_0)-funcion(x_1)))!Tomamos el valor de x como el anterior menos una expresion que tiene
+        !Tomamos el valor de x como el anterior menos una expresion que tiene
+        x=x_0-((funcion(x_0)*(x_0-x_1))/(funcion(x_0)-funcion(x_1)))
         difere=abs(abs(x)-abs(x_1))!que ver con la derivada.
         x_1=x
         iteracion=iteracion+1!Contamos las iteraciones que se hacen
