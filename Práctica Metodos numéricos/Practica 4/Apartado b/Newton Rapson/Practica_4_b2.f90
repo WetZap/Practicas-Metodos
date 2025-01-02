@@ -5,8 +5,9 @@ function funcion(x) result(valor)
     valor= x**3- 5*x**2 + 7*x - 3
 end function
 !Esta función se encarga de guardar el valor de la funcion prima a encontrar cero.
-implicit none
+
 function funcion_prima(x) result(valor)
+    implicit none
     real*8 x,valor
     valor=3*x**2-10*x+7
 end function
